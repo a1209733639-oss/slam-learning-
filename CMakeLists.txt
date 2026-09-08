@@ -136,6 +136,13 @@ target_link_libraries(listener ${catkin_LIBRARIES})
 
 
 
+add_executable(odom_monitor src/odom_monitor.cpp)
+
+target_link_libraries(odom_monitor
+  ${catkin_LIBRARIES}
+)
+
+
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/slam_learning.cpp
