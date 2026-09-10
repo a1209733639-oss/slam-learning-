@@ -7,9 +7,13 @@ project(slam_learning)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
+
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
+  sensor_msgs
+  pcl_ros
+  pcl_conversions
 )
 
 
@@ -116,9 +120,10 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
+
 include_directories(
-# include
   ${catkin_INCLUDE_DIRS}
+  ${PCL_INCLUDE_DIRS}
 )
 
 
@@ -141,6 +146,18 @@ add_executable(odom_monitor src/odom_monitor.cpp)
 target_link_libraries(odom_monitor
   ${catkin_LIBRARIES}
 )
+
+
+add_executable(pointcloud_filter
+  src/pointcloud_filter.cpp
+)
+
+target_link_libraries(pointcloud_filter
+  ${catkin_LIBRARIES}
+  ${PCL_LIBRARIES}
+)
+
+
 
 
 ## Declare a C++ library
