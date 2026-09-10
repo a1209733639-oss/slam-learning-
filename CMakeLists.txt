@@ -157,6 +157,15 @@ target_link_libraries(pointcloud_filter
   ${PCL_LIBRARIES}
 )
 
+add_executable(
+cloud_transformer
+src/cloud_transformer.cpp
+)
+
+target_link_libraries(
+cloud_transformer
+${catkin_LIBRARIES}
+)
 
 
 
