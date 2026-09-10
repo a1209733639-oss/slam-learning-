@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   sensor_msgs
+  tf
   pcl_ros
   pcl_conversions
 )
@@ -167,6 +168,17 @@ cloud_transformer
 ${catkin_LIBRARIES}
 )
 
+add_executable(
+cloud_transform_filter
+src/cloud_transform_filter.cpp
+)
+
+
+target_link_libraries(
+cloud_transform_filter
+${catkin_LIBRARIES}
+${PCL_LIBRARIES}
+)
 
 
 ## Declare a C++ library
