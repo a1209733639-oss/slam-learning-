@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(day7_kdtree)
+project(day8_icp)
 
 
 set(CMAKE_CXX_STANDARD 11)
@@ -15,12 +15,12 @@ include_directories(
 
 
 add_executable(
-    kdtree_demo
-    kdtree_demo.cpp
+    icp_demo
+    icp_demo.cpp
 )
 
 
 target_link_libraries(
-    kdtree_demo
+    icp_demo
     ${PCL_LIBRARIES}
 )
