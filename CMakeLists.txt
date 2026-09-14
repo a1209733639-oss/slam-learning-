@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   pcl_ros
   pcl_conversions
+  nav_msgs
 )
 
 
@@ -180,6 +181,45 @@ ${catkin_LIBRARIES}
 ${PCL_LIBRARIES}
 )
 
+add_executable(
+cloud_filter_node
+src/cloud_filter_node.cpp
+)
+
+
+add_executable(
+scan_match_node
+src/scan_match_node.cpp
+)
+
+
+
+
+target_link_libraries(
+cloud_filter_node
+${catkin_LIBRARIES}
+${PCL_LIBRARIES}
+)
+
+
+target_link_libraries(
+scan_match_node
+${catkin_LIBRARIES}
+${PCL_LIBRARIES}
+)
+
+
+add_executable(
+cloud_publisher
+src/cloud_publisher.cpp
+)
+
+
+target_link_libraries(
+cloud_publisher
+${catkin_LIBRARIES}
+${PCL_LIBRARIES}
+)
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
